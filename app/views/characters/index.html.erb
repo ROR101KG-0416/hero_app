@@ -1,0 +1,10 @@
+<h1>Characters</h1>
+
+
+<% @characters.each do |character| %>
+  <p>
+    <span><%= character.alias %></span>
+    <span><%= character.first_name %></span>
+    <span><%= character.last_name %></span>
+  </p>
+<% end %>
