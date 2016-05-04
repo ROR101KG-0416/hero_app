@@ -3,7 +3,7 @@
 
 <% @characters.each do |character| %>
   <p>
-    <span><%= character.alias %></span>
+    <span><%= link_to character.alias, character_path(character), method: :get  %></span>
     <span><%= character.first_name %></span>
     <span><%= character.last_name %></span>
   </p>

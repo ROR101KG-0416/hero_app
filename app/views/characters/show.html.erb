@@ -1,0 +1,14 @@
+<%= link_to 'return to characters list', characters_path %>
+
+<% if @character %>
+
+  <h1><%= @character.alias %></h1>
+  <p><%= @character.first_name %></p>
+  <p><%= @character.last_name %></p>
+
+<% else %>
+
+  <p> Character not found </p>
+
+<% end %>
+

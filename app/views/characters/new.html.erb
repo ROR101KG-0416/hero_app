@@ -1,0 +1,20 @@
+<h1>Add Character</h1>
+
+<%= form_for @character, url: {action: 'create'} do |f| %>
+  <p>
+    <%= f.label :alias %> 
+    <%= f.text_field :alias %>
+  </p>
+
+  <p>
+    <%= f.label :first_name %> 
+    <%= f.text_field :first_name %>
+  </p>
+
+  <p>
+    <%= f.label :last_name %> 
+    <%= f.text_field :last_name %>
+  </p>
+  
+  <p><%= f.submit 'Create' %></p>
+<% end %>
