@@ -1,8 +1,8 @@
-<h1>Add Character</h1>
+<h1>Edit Character</h1>
 
 <%= link_to 'return to characters list', characters_path %>
 
-<%= form_for @character, url: {action: :create} do |f| %>
+<%= form_for @character, url: {action: :update} do |f| %>
   <p>
     <%= f.label :alias %><br>
     <%= f.text_field :alias %>
