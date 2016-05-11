@@ -30,10 +30,14 @@ class CharactersController < ApplicationController
 
   def update
     @character = Character.find_by_id(params[:id])
-    @character.update(character_params)
 
-    # redirect to show action
-    redirect_to character_path(@character)
+    if @character.update(character_params)
+      # redirect to show action
+      redirect_to character_path(@character), notice: "Character was updated successfully"
+    else
+      flash.now[:error] = "There was an issue updating this Character"
+      render :edit
+    end 
   end
 
   def destroy
@@ -46,7 +50,7 @@ class CharactersController < ApplicationController
   private
 
   def character_params
-    params.require(:character).permit(:alias, :first_name, :last_name)
+    params.require(:character).permit(:alias, :first_name, :last_name, :universe)
   end
 end
 

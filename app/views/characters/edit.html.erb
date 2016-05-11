@@ -2,21 +2,4 @@
 
 <%= link_to 'return to characters list', characters_path %>
 
-<%= form_for @character, url: {action: :update} do |f| %>
-  <p>
-    <%= f.label :alias %><br>
-    <%= f.text_field :alias %>
-  </p>
-
-   <p>
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-  </p>
-
-   <p>
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </p>
-
-  <%= f.submit %>
-<% end %>
+<%= render 'form' %>
