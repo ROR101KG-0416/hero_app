@@ -7,6 +7,7 @@
     <th>Alias</th>
     <th>First Name</th>
     <th>Last Name</th>
+    <th>Universe</th>
     <th></th>
   </tr>
   <tbody>
@@ -15,15 +16,12 @@
         <td><%= link_to(character.alias, character_path(character)) %></td>
         <td><%= character.first_name %></td>
         <td><%= character.last_name %></td>
+        <td><%= character.universe.try(:name) %></td>
         <td>
           <%= link_to "edit", edit_character_path(character) %>
           <%= link_to "delete", character_path(character), method: :delete, data: {confirm: "Are you sure you want to delete this character?"} %>
         </td>
       </tr>
     <% end %>
-
-
-
-
   </tbody>
 </table>

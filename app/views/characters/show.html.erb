@@ -3,9 +3,17 @@
 <% if @character %>
 
   <h1><%= @character.alias %></h1>
-  <p><%= @character.first_name %></p>
-  <p><%= @character.last_name %></p>
-  <p><%= @character.universe %></p>
+  <p>First Name: <%= @character.first_name %></p>
+  <p>Last Name: <%= @character.last_name %></p>
+  <p>Universe: <%= @character.universe.try(:name) %></p>
+  <p>Bio: <%= @character.bio %></p>
+
+  <p>Abilities</p>
+  <ul>
+    <% @character.abilities.each do |ability| %>
+    <li><%= ability.name %></li>
+    <% end %>
+  </ul>
 
 <% else %>
 

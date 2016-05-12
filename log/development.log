@@ -4078,3 +4078,2067 @@ Migrating to CreateUniverses (20160510010644)
   [1m[35mCharacter Exists (0.2ms)[0m  SELECT  1 AS one FROM "characters" WHERE (LOWER("characters"."alias") = LOWER('Professor X') AND "characters"."id" != 6) LIMIT 1
   [1m[36mSQL (0.2ms)[0m  [1mUPDATE "characters" SET "universe_id" = ?, "updated_at" = ? WHERE "characters"."id" = ?[0m  [["universe_id", 1], ["updated_at", "2016-05-10 01:21:49.821592"], ["id", 6]]
   [1m[35m (1.3ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mUniverse Load (0.5ms)[0m  [1mSELECT  "universes".* FROM "universes"  ORDER BY "universes"."id" ASC LIMIT 1[0m
+  [1m[35mUniverse Load (0.2ms)[0m  SELECT  "universes".* FROM "universes"  ORDER BY "universes"."id" ASC LIMIT 1
+  [1m[36mCharacter Load (0.5ms)[0m  [1mSELECT "characters".* FROM "characters" WHERE "characters"."universe_id" = ?[0m  [["universe_id", 1]]
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT  "characters".* FROM "characters"  ORDER BY "characters"."id" ASC LIMIT 1
+  [1m[36mUniverse Load (0.2ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[36mCharacter Load (0.5ms)[0m  [1mSELECT  "characters".* FROM "characters"  ORDER BY "characters"."id" ASC LIMIT 1[0m
+  [1m[36mCharacter Load (0.5ms)[0m  [1mSELECT  "characters".* FROM "characters"  ORDER BY "characters"."id" ASC LIMIT 1[0m
+  [1m[35mUniverse Load (0.5ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUniverse Load (0.2ms)[0m  [1mSELECT  "universes".* FROM "universes"  ORDER BY "universes"."id" DESC LIMIT 1[0m
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT "characters".* FROM "characters" WHERE "characters"."universe_id" = ?  [["universe_id", 2]]
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-11 19:00:05 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.5ms)[0m  SELECT "characters".* FROM "characters"
+  Rendered characters/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 1036ms (Views: 1020.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/characters/7" for 127.0.0.1 at 2016-05-11 19:00:24 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCharacter Load (0.2ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 7]]
+  Rendered characters/show.html.erb within layouts/application (51.5ms)
+Completed 200 OK in 78ms (Views: 65.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters/5" for 127.0.0.1 at 2016-05-11 19:00:29 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36mUniverse Load (0.5ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered characters/show.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 18ms (Views: 16.7ms | ActiveRecord: 0.8ms)
+  [1m[36mCharacter Load (0.2ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT  "characters".* FROM "characters"  ORDER BY "characters"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mCharacter Exists (0.5ms)[0m  SELECT  1 AS one FROM "characters" WHERE (LOWER("characters"."alias") = LOWER('Deadpool') AND "characters"."id" != 7) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "characters" SET "universe_id" = ?, "updated_at" = ? WHERE "characters"."id" = ?[0m  [["universe_id", 1], ["updated_at", "2016-05-11 23:03:02.701384"], ["id", 7]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCharacter Exists (0.2ms)[0m  SELECT  1 AS one FROM "characters" WHERE (LOWER("characters"."alias") = LOWER('Green Arrow') AND "characters"."id" != 9) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "characters" SET "universe_id" = ?, "updated_at" = ? WHERE "characters"."id" = ?[0m  [["universe_id", 2], ["updated_at", "2016-05-11 23:04:19.871599"], ["id", 9]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 8]]
+  [1m[36mUniverse Load (0.2ms)[0m  [1mSELECT  "universes".* FROM "universes"  ORDER BY "universes"."id" ASC LIMIT 1[0m
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT "characters".* FROM "characters" WHERE "characters"."universe_id" = ?  [["universe_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCharacter Exists (0.2ms)[0m  SELECT  1 AS one FROM "characters" WHERE (LOWER("characters"."alias") = LOWER('Wolverine') AND "characters"."id" != 8) LIMIT 1
+  [1m[36mSQL (0.9ms)[0m  [1mUPDATE "characters" SET "first_name" = ?, "universe_id" = ?, "updated_at" = ? WHERE "characters"."id" = ?[0m  [["first_name", "Logan"], ["universe_id", 1], ["updated_at", "2016-05-11 23:08:31.234718"], ["id", 8]]
+  [1m[35m (1.3ms)[0m  commit transaction
+
+
+Started GET "/characters/2" for 127.0.0.1 at 2016-05-11 19:09:46 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCharacter Load (0.3ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 17ms (Views: 14.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/characters/4" for 127.0.0.1 at 2016-05-11 19:09:50 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered characters/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/characters/2" for 127.0.0.1 at 2016-05-11 19:10:00 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered characters/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 19:10:03 -0400
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.2ms)[0m  [1mSELECT "characters".* FROM "characters"[0m
+  Rendered characters/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 14ms (Views: 13.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters/7" for 127.0.0.1 at 2016-05-11 19:10:04 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 19:10:06 -0400
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT "characters".* FROM "characters"
+  Rendered characters/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters/5" for 127.0.0.1 at 2016-05-11 19:10:07 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered characters/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 19:10:08 -0400
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.3ms)[0m  [1mSELECT "characters".* FROM "characters"[0m
+  Rendered characters/index.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 14ms (Views: 13.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/characters/2" for 127.0.0.1 at 2016-05-11 19:10:23 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/characters/2" for 127.0.0.1 at 2016-05-11 19:11:50 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-11 19:11:50 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-11 19:11:50 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-11 19:11:50 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-11 19:11:50 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-11 19:11:50 -0400
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 19:11:58 -0400
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT "characters".* FROM "characters"
+  Rendered characters/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters/3" for 127.0.0.1 at 2016-05-11 19:12:06 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered characters/show.html.erb within layouts/application (6.4ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.1ms)
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+     5:   <h1><%= @character.alias %></h1>
+     6:   <p><%= @character.first_name %></p>
+     7:   <p><%= @character.last_name %></p>
+     8:   <p><%= @character.universe.name %></p>
+     9: 
+    10: <% else %>
+    11: 
+  app/views/characters/show.html.erb:8:in `_app_views_characters_show_html_erb__353265445574823767_70099451976060'
+
+
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.0ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.4ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (25.5ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.6ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (27.9ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (53.8ms)
+
+
+Started GET "/characters/3" for 127.0.0.1 at 2016-05-11 19:12:06 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered characters/show.html.erb within layouts/application (2.1ms)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms)
+
+ActionView::Template::Error (undefined method `name' for nil:NilClass):
+     5:   <h1><%= @character.alias %></h1>
+     6:   <p><%= @character.first_name %></p>
+     7:   <p><%= @character.last_name %></p>
+     8:   <p><%= @character.universe.name %></p>
+     9: 
+    10: <% else %>
+    11: 
+  app/views/characters/show.html.erb:8:in `_app_views_characters_show_html_erb__353265445574823767_70099408456140'
+
+
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.7ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (20.3ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (23.1ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (38.0ms)
+  [1m[36mCharacter Load (0.2ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 3]]
+
+
+Started GET "/characters/3" for 127.0.0.1 at 2016-05-11 19:17:52 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered characters/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-11 19:17:52 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-11 19:17:52 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-11 19:17:52 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-11 19:17:52 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-11 19:17:52 -0400
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 19:18:07 -0400
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.4ms)[0m  SELECT "characters".* FROM "characters"
+  Rendered characters/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/characters/2" for 127.0.0.1 at 2016-05-11 19:18:15 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered characters/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 13ms (Views: 11.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 19:18:17 -0400
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT "characters".* FROM "characters"[0m
+  Rendered characters/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/characters/11" for 127.0.0.1 at 2016-05-11 19:18:18 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 11]]
+  Rendered characters/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/characters/11" for 127.0.0.1 at 2016-05-11 19:18:54 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 11]]
+  Rendered characters/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-11 19:18:54 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-11 19:18:54 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-11 19:18:54 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-11 19:18:54 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-11 19:18:54 -0400
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36m (0.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mCharacter Exists (0.1ms)[0m  SELECT  1 AS one FROM "characters" WHERE (LOWER("characters"."alias") = LOWER('Thanos') AND "characters"."id" != 11) LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "characters" SET "last_name" = ?, "updated_at" = ? WHERE "characters"."id" = ?[0m  [["last_name", nil], ["updated_at", "2016-05-11 23:19:48.036086"], ["id", 11]]
+  [1m[35m (0.7ms)[0m  commit transaction
+
+
+Started GET "/characters/11" for 127.0.0.1 at 2016-05-11 19:19:57 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 11]]
+  Rendered characters/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-11 19:19:57 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-11 19:19:57 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-11 19:19:57 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-11 19:19:57 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-11 19:19:57 -0400
+
+
+Started GET "/characters/11" for 127.0.0.1 at 2016-05-11 19:19:58 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 11]]
+  Rendered characters/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-11 19:19:58 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-11 19:19:58 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-11 19:19:58 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-11 19:19:58 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-11 19:19:58 -0400
+
+
+Started GET "/characters/11" for 127.0.0.1 at 2016-05-11 19:19:58 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 11]]
+  Rendered characters/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-11 19:19:58 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-11 19:19:58 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-11 19:19:58 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-11 19:19:58 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-11 19:19:58 -0400
+
+
+Started GET "/characters/11" for 127.0.0.1 at 2016-05-11 19:19:59 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 11]]
+  Rendered characters/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/characters/11" for 127.0.0.1 at 2016-05-11 19:19:59 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 11]]
+  Rendered characters/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-11 19:19:59 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-11 19:19:59 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-11 19:19:59 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-11 19:19:59 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-11 19:19:59 -0400
+
+
+Started GET "/characters/11" for 127.0.0.1 at 2016-05-11 19:19:59 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 11]]
+  Rendered characters/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 19ms (Views: 18.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/characters/11" for 127.0.0.1 at 2016-05-11 19:19:59 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 11]]
+  Rendered characters/show.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 12ms (Views: 10.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-11 19:19:59 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-11 19:19:59 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-11 19:19:59 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-11 19:19:59 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-11 19:19:59 -0400
+
+
+Started GET "/characters/11" for 127.0.0.1 at 2016-05-11 19:19:59 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 11]]
+  Rendered characters/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-11 19:19:59 -0400
+
+
+Started GET "/characters/11" for 127.0.0.1 at 2016-05-11 19:19:59 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 11]]
+  Rendered characters/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/characters/11" for 127.0.0.1 at 2016-05-11 19:21:52 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 11]]
+  Rendered characters/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-11 19:21:52 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-11 19:21:52 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-11 19:21:52 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-11 19:21:52 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-11 19:21:52 -0400
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 19:21:53 -0400
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.3ms)[0m  SELECT "characters".* FROM "characters"
+  Rendered characters/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 22ms (Views: 20.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/characters/10" for 127.0.0.1 at 2016-05-11 19:21:55 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mCharacter Load (0.2ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 10]]
+  Rendered characters/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters/9" for 127.0.0.1 at 2016-05-11 19:22:02 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered characters/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 17ms (Views: 15.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters/9/edit" for 127.0.0.1 at 2016-05-11 19:22:07 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mUniverse Load (0.2ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered characters/_form.html.erb (19.4ms)
+  Rendered characters/edit.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 33ms (Views: 31.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 19:22:18 -0400
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT "characters".* FROM "characters"
+  Rendered characters/index.html.erb within layouts/application (4.2ms)
+Completed 200 OK in 18ms (Views: 17.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters/new" for 127.0.0.1 at 2016-05-11 19:22:19 -0400
+Processing by CharactersController#new as HTML
+  Rendered characters/_form.html.erb (1.7ms)
+  Rendered characters/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/characters/new" for 127.0.0.1 at 2016-05-11 19:34:10 -0400
+Processing by CharactersController#new as HTML
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT "universes".* FROM "universes"[0m
+  Rendered characters/_form.html.erb (5.0ms)
+  Rendered characters/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 20ms (Views: 19.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-11 19:34:10 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-11 19:34:10 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-11 19:34:10 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-11 19:34:10 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-11 19:34:10 -0400
+
+
+Started POST "/characters" for 127.0.0.1 at 2016-05-11 19:36:41 -0400
+Processing by CharactersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5+VLIGO001ng5n/y+eBDBro8LJZ/xE4KG7gprGrcKAagcBEcGMeOVzVnDdZzeN9DvWVdT0aR+g7O6s0wuQ5PKA==", "character"=>{"alias"=>"Beast", "first_name"=>"Dr. ", "last_name"=>"", "universe_id"=>"1"}, "commit"=>"Create Character"}
+Unpermitted parameter: universe_id
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCharacter Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "characters" WHERE LOWER("characters"."alias") = LOWER('Beast') LIMIT 1[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "characters" ("alias", "first_name", "last_name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["alias", "Beast"], ["first_name", "Dr. "], ["last_name", ""], ["created_at", "2016-05-11 23:40:11.542312"], ["updated_at", "2016-05-11 23:40:11.542312"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/characters
+Completed 302 Found in 209626ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 19:40:11 -0400
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.3ms)[0m  SELECT "characters".* FROM "characters"
+  Rendered characters/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 32ms (Views: 28.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/characters/13" for 127.0.0.1 at 2016-05-11 19:41:09 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 13]]
+  Rendered characters/show.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 24ms (Views: 16.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/characters/13/edit" for 127.0.0.1 at 2016-05-11 19:41:20 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"13"}
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36mUniverse Load (0.2ms)[0m  [1mSELECT "universes".* FROM "universes"[0m
+  Rendered characters/_form.html.erb (8.9ms)
+  Rendered characters/edit.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 22ms (Views: 19.7ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/characters/13" for 127.0.0.1 at 2016-05-11 19:42:31 -0400
+Processing by CharactersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"J8jm31w31orc/12/H6o570R7v9qEWu1rO+N9VLH1VodgXbzjJ0SLhAl+L5uVMqWqQyLOA70PWW/usZnIYicxqQ==", "character"=>{"alias"=>"Beast", "first_name"=>"Dr. ", "last_name"=>"", "universe_id"=>"1"}, "commit"=>"Update Character", "id"=>"13"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 13]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mCharacter Exists (0.1ms)[0m  SELECT  1 AS one FROM "characters" WHERE (LOWER("characters"."alias") = LOWER('Beast') AND "characters"."id" != 13) LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mUPDATE "characters" SET "universe_id" = ?, "updated_at" = ? WHERE "characters"."id" = ?[0m  [["universe_id", 1], ["updated_at", "2016-05-11 23:42:31.684580"], ["id", 13]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/characters/13
+Completed 302 Found in 8ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/characters/13" for 127.0.0.1 at 2016-05-11 19:42:31 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35mUniverse Load (0.2ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered characters/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 19:42:51 -0400
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.2ms)[0m  [1mSELECT "characters".* FROM "characters"[0m
+  Rendered characters/index.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters/4" for 127.0.0.1 at 2016-05-11 19:42:52 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 4]]
+  Rendered characters/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/characters/4/edit" for 127.0.0.1 at 2016-05-11 19:42:53 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCharacter Load (0.2ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT "universes".* FROM "universes"
+  Rendered characters/_form.html.erb (3.4ms)
+  Rendered characters/edit.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 18ms (Views: 15.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 19:43:22 -0400
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT "characters".* FROM "characters"[0m
+  Rendered characters/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/characters/3" for 127.0.0.1 at 2016-05-11 19:43:23 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered characters/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 11ms (Views: 10.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/characters/3/edit" for 127.0.0.1 at 2016-05-11 19:43:24 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT "universes".* FROM "universes"
+  Rendered characters/_form.html.erb (2.7ms)
+  Rendered characters/edit.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 27ms (Views: 26.1ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/characters/3" for 127.0.0.1 at 2016-05-11 19:43:26 -0400
+Processing by CharactersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qhUOv+zX3NoukucxOIIr+HMB+dHhhDYgMgGIynJMZK/tgFSDl6SB1PsTlRWyGre9dFiICNjRgiTnU2xWoZ4DgQ==", "character"=>{"alias"=>"Flash", "first_name"=>"Barry", "last_name"=>"Allen", "universe_id"=>"2"}, "commit"=>"Update Character", "id"=>"3"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCharacter Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "characters" WHERE (LOWER("characters"."alias") = LOWER('Flash') AND "characters"."id" != 3) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "characters" SET "universe_id" = ?, "updated_at" = ? WHERE "characters"."id" = ?  [["universe_id", 2], ["updated_at", "2016-05-11 23:43:26.733786"], ["id", 3]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/characters/3
+Completed 302 Found in 6ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/characters/3" for 127.0.0.1 at 2016-05-11 19:43:26 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mCharacter Load (0.3ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered characters/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 16ms (Views: 12.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 19:43:29 -0400
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT "characters".* FROM "characters"
+  Rendered characters/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters/4" for 127.0.0.1 at 2016-05-11 19:43:31 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 4]]
+  Rendered characters/show.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/characters/4/edit" for 127.0.0.1 at 2016-05-11 19:43:32 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT "universes".* FROM "universes"[0m
+  Rendered characters/_form.html.erb (2.7ms)
+  Rendered characters/edit.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/characters/4" for 127.0.0.1 at 2016-05-11 19:43:33 -0400
+Processing by CharactersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3sZ4hzW0PBzT35jGsCRnlNZ7bSUQPPud2McN3ZaAlIOZUyK7TsdhEgZe6uI6vPvR0SIc/ClpT5kNlelBRVLzrQ==", "character"=>{"alias"=>"Ultimate Spiderman", "first_name"=>"Peter", "last_name"=>"Parker", "universe_id"=>"1"}, "commit"=>"Update Character", "id"=>"4"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCharacter Exists (0.2ms)[0m  SELECT  1 AS one FROM "characters" WHERE (LOWER("characters"."alias") = LOWER('Ultimate Spiderman') AND "characters"."id" != 4) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "characters" SET "universe_id" = ?, "updated_at" = ? WHERE "characters"."id" = ?[0m  [["universe_id", 1], ["updated_at", "2016-05-11 23:43:33.416529"], ["id", 4]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/characters/4
+Completed 302 Found in 7ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/characters/4" for 127.0.0.1 at 2016-05-11 19:43:33 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCharacter Load (0.2ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered characters/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 16ms (Views: 13.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 19:43:35 -0400
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.2ms)[0m  [1mSELECT "characters".* FROM "characters"[0m
+  Rendered characters/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters/9" for 127.0.0.1 at 2016-05-11 19:43:37 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 9]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered characters/show.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 13ms (Views: 11.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 19:43:39 -0400
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT "characters".* FROM "characters"
+  Rendered characters/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters/10" for 127.0.0.1 at 2016-05-11 19:43:40 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 10]]
+  Rendered characters/show.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/characters/10/edit" for 127.0.0.1 at 2016-05-11 19:43:41 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mCharacter Load (0.3ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT "universes".* FROM "universes"[0m
+  Rendered characters/_form.html.erb (2.7ms)
+  Rendered characters/edit.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 16ms (Views: 14.5ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/characters/10" for 127.0.0.1 at 2016-05-11 19:43:43 -0400
+Processing by CharactersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9y60goP37KjxA5SRkD/n//5E2YcKQEZXbRLPnLoNNb2wu+6++ISxpiSC5rUap3u6+R2oXjMV8lO4QCsAad9Skw==", "character"=>{"alias"=>"Supergirl", "first_name"=>"Rebecca", "last_name"=>"Kent", "universe_id"=>"2"}, "commit"=>"Update Character", "id"=>"10"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCharacter Exists (0.4ms)[0m  SELECT  1 AS one FROM "characters" WHERE (LOWER("characters"."alias") = LOWER('Supergirl') AND "characters"."id" != 10) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "characters" SET "universe_id" = ?, "updated_at" = ? WHERE "characters"."id" = ?[0m  [["universe_id", 2], ["updated_at", "2016-05-11 23:43:43.734453"], ["id", 10]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/characters/10
+Completed 302 Found in 9ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/characters/10" for 127.0.0.1 at 2016-05-11 19:43:43 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mCharacter Load (0.5ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered characters/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 16ms (Views: 13.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 19:43:44 -0400
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT "characters".* FROM "characters"[0m
+  Rendered characters/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/characters/11" for 127.0.0.1 at 2016-05-11 19:43:46 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 11]]
+  Rendered characters/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/characters/11/edit" for 127.0.0.1 at 2016-05-11 19:43:47 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mUniverse Load (0.2ms)[0m  SELECT "universes".* FROM "universes"
+  Rendered characters/_form.html.erb (4.9ms)
+  Rendered characters/edit.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/characters/11" for 127.0.0.1 at 2016-05-11 19:43:49 -0400
+Processing by CharactersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"A5ML6r2t/sbPdgL2z3X1c1RvvOoekWvFh4W72wtxXrpEBlHWxt6jyBr3cNJF7Wk2UzbNMyfE38FS119H2KM5lA==", "character"=>{"alias"=>"Thanos", "first_name"=>"Thanos", "last_name"=>"", "universe_id"=>"2"}, "commit"=>"Update Character", "id"=>"11"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mCharacter Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "characters" WHERE (LOWER("characters"."alias") = LOWER('Thanos') AND "characters"."id" != 11) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "characters" SET "last_name" = ?, "universe_id" = ?, "updated_at" = ? WHERE "characters"."id" = ?  [["last_name", ""], ["universe_id", 2], ["updated_at", "2016-05-11 23:43:49.503732"], ["id", 11]]
+  [1m[36m (1.3ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/characters/11
+Completed 302 Found in 5ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/characters/11" for 127.0.0.1 at 2016-05-11 19:43:49 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered characters/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 14ms (Views: 12.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters/11/edit" for 127.0.0.1 at 2016-05-11 19:43:50 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT "universes".* FROM "universes"[0m
+  Rendered characters/_form.html.erb (2.1ms)
+  Rendered characters/edit.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 19:43:52 -0400
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT "characters".* FROM "characters"
+  Rendered characters/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 14ms (Views: 13.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters/12" for 127.0.0.1 at 2016-05-11 19:43:53 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 12]]
+  Rendered characters/show.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/characters/12/edit" for 127.0.0.1 at 2016-05-11 19:43:54 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"12"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36mUniverse Load (0.2ms)[0m  [1mSELECT "universes".* FROM "universes"[0m
+  Rendered characters/_form.html.erb (2.6ms)
+  Rendered characters/edit.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/characters/12" for 127.0.0.1 at 2016-05-11 19:43:58 -0400
+Processing by CharactersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"efBUeIbUQ2urmfrZhCjqXEHJxCsqp4Z26Nh95vcZkgA+ZQ5E/aceZX4YiP0OsHYZRpC18hPyMnI9ipl6JMv1Lg==", "character"=>{"alias"=>"Storm", "first_name"=>"Ororo", "last_name"=>"", "universe_id"=>"1"}, "commit"=>"Update Character", "id"=>"12"}
+  [1m[35mCharacter Load (0.3ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 12]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCharacter Exists (0.1ms)[0m  SELECT  1 AS one FROM "characters" WHERE (LOWER("characters"."alias") = LOWER('Storm') AND "characters"."id" != 12) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "characters" SET "universe_id" = ?, "updated_at" = ? WHERE "characters"."id" = ?[0m  [["universe_id", 1], ["updated_at", "2016-05-11 23:43:58.736784"], ["id", 12]]
+  [1m[35m (1.3ms)[0m  commit transaction
+Redirected to http://localhost:3000/characters/12
+Completed 302 Found in 5ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/characters/12" for 127.0.0.1 at 2016-05-11 19:43:58 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered characters/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters/12/edit" for 127.0.0.1 at 2016-05-11 19:43:59 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35mUniverse Load (0.2ms)[0m  SELECT "universes".* FROM "universes"
+  Rendered characters/_form.html.erb (5.3ms)
+  Rendered characters/edit.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 17ms (Views: 16.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 19:44:01 -0400
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.7ms)[0m  [1mSELECT "characters".* FROM "characters"[0m
+  Rendered characters/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/characters/2" for 127.0.0.1 at 2016-05-11 19:44:03 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 19:44:05 -0400
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT "characters".* FROM "characters"
+  Rendered characters/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 19ms (Views: 18.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/characters/2" for 127.0.0.1 at 2016-05-11 19:44:16 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCharacter Load (0.3ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered characters/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 15ms (Views: 12.2ms | ActiveRecord: 0.5ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddBioToCharacters (20160511235832)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "characters" ADD "bio" text[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160511235832"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/characters/2" for 127.0.0.1 at 2016-05-11 20:01:52 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUniverse Load (0.4ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/show.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 32ms (Views: 23.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-11 20:01:52 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-11 20:01:52 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-11 20:01:52 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-11 20:01:52 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-11 20:01:52 -0400
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 20:01:54 -0400
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT "characters".* FROM "characters"
+  Rendered characters/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 16ms (Views: 15.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters/new" for 127.0.0.1 at 2016-05-11 20:01:55 -0400
+Processing by CharactersController#new as HTML
+  [1m[36mUniverse Load (0.2ms)[0m  [1mSELECT "universes".* FROM "universes"[0m
+  Rendered characters/_form.html.erb (6.7ms)
+  Rendered characters/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 23ms (Views: 21.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters/new" for 127.0.0.1 at 2016-05-11 20:03:29 -0400
+Processing by CharactersController#new as HTML
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT "universes".* FROM "universes"
+  Rendered characters/_form.html.erb (5.6ms)
+  Rendered characters/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 16ms (Views: 15.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-11 20:03:29 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-11 20:03:29 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-11 20:03:29 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-11 20:03:29 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-11 20:03:29 -0400
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 20:04:42 -0400
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.3ms)[0m  [1mSELECT "characters".* FROM "characters"[0m
+  Rendered characters/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 30ms (Views: 26.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/characters/2" for 127.0.0.1 at 2016-05-11 20:04:43 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUniverse Load (0.2ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/show.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 22ms (Views: 19.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/characters/2/edit" for 127.0.0.1 at 2016-05-11 20:04:44 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT "universes".* FROM "universes"[0m
+  Rendered characters/_form.html.erb (4.1ms)
+  Rendered characters/edit.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/characters/2" for 127.0.0.1 at 2016-05-11 20:04:52 -0400
+Processing by CharactersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"I0m26z0A0m+pXyvcZPHkWhUuQ6sPsiT0UYs92w96X0Jk3OzXRnOPYXzeWfjuaXgfEncycjbnkPCE2dlH3Kg4bA==", "character"=>{"alias"=>"Captain America", "first_name"=>"Steve", "last_name"=>"Rogers", "bio"=>"The first avenger", "universe_id"=>"1"}, "commit"=>"Update Character", "id"=>"2"}
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCharacter Exists (0.2ms)[0m  SELECT  1 AS one FROM "characters" WHERE (LOWER("characters"."alias") = LOWER('Captain America') AND "characters"."id" != 2) LIMIT 1
+  [1m[36mSQL (1.8ms)[0m  [1mUPDATE "characters" SET "bio" = ?, "updated_at" = ? WHERE "characters"."id" = ?[0m  [["bio", "The first avenger"], ["updated_at", "2016-05-12 00:04:52.993038"], ["id", 2]]
+  [1m[35m (1.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/characters/2
+Completed 302 Found in 14ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/characters/2" for 127.0.0.1 at 2016-05-11 20:04:53 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUniverse Load (0.2ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered characters/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 20:05:12 -0400
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.2ms)[0m  [1mSELECT "characters".* FROM "characters"[0m
+  Rendered characters/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 20:08:29 -0400
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT "characters".* FROM "characters"
+  Rendered characters/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 13ms (Views: 12.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-11 20:08:29 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-11 20:08:29 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-11 20:08:29 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-11 20:08:29 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-11 20:08:29 -0400
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 20:09:24 -0400
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.2ms)[0m  [1mSELECT "characters".* FROM "characters"[0m
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/index.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-11 20:09:25 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-11 20:09:25 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-11 20:09:25 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-11 20:09:25 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-11 20:09:25 -0400
+
+
+Started GET "/characters/2" for 127.0.0.1 at 2016-05-11 20:24:25 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUniverse Load (0.2ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 20:24:26 -0400
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT "characters".* FROM "characters"
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered characters/index.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 23ms (Views: 21.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/characters/5" for 127.0.0.1 at 2016-05-11 20:24:27 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered characters/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 19ms (Views: 17.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 20:24:29 -0400
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.2ms)[0m  [1mSELECT "characters".* FROM "characters"[0m
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/index.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 30ms (Views: 29.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/characters/11/edit" for 127.0.0.1 at 2016-05-11 20:25:04 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT "universes".* FROM "universes"[0m
+  Rendered characters/_form.html.erb (3.1ms)
+  Rendered characters/edit.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/characters/11" for 127.0.0.1 at 2016-05-11 20:25:07 -0400
+Processing by CharactersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"sJDK8G0JEs7o4NuF9OfSZo114t1ENh3GcU95MrdzJ2b3BZDMFnpPwD1hqaF+f04jiiyTBH1jqcKkHZ2uZKFASA==", "character"=>{"alias"=>"Thanos", "first_name"=>"Thanos", "last_name"=>"", "bio"=>"", "universe_id"=>"1"}, "commit"=>"Update Character", "id"=>"11"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 11]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCharacter Exists (0.3ms)[0m  SELECT  1 AS one FROM "characters" WHERE (LOWER("characters"."alias") = LOWER('Thanos') AND "characters"."id" != 11) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "characters" SET "universe_id" = ?, "bio" = ?, "updated_at" = ? WHERE "characters"."id" = ?[0m  [["universe_id", 1], ["bio", ""], ["updated_at", "2016-05-12 00:25:07.787994"], ["id", 11]]
+  [1m[35m (1.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/characters/11
+Completed 302 Found in 9ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/characters/11" for 127.0.0.1 at 2016-05-11 20:25:07 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered characters/show.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 20:27:18 -0400
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.2ms)[0m  [1mSELECT "characters".* FROM "characters"[0m
+  [1m[35mUniverse Load (0.2ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUniverse Load (0.6ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/index.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 28ms (Views: 26.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/characters/new" for 127.0.0.1 at 2016-05-11 20:27:20 -0400
+Processing by CharactersController#new as HTML
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT "universes".* FROM "universes"
+  Rendered characters/_form.html.erb (3.8ms)
+  Rendered characters/new.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 17ms (Views: 16.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/characters/new" for 127.0.0.1 at 2016-05-11 20:28:27 -0400
+Processing by CharactersController#new as HTML
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT "universes".* FROM "universes"[0m
+  Rendered characters/_form.html.erb (3.8ms)
+  Rendered characters/new.html.erb within layouts/application (4.7ms)
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-11 20:28:27 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-11 20:28:27 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-11 20:28:27 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-11 20:28:27 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-11 20:28:27 -0400
+  [1m[36mCharacter Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "characters" WHERE LOWER("characters"."alias") = LOWER('Black Panther') LIMIT 1[0m
+
+
+Started GET "/characters/new" for 127.0.0.1 at 2016-05-11 20:31:56 -0400
+Processing by CharactersController#new as HTML
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT "universes".* FROM "universes"
+  Rendered characters/_form.html.erb (7.8ms)
+  Rendered characters/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 33ms (Views: 24.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-11 20:31:56 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-11 20:31:56 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-11 20:31:56 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-11 20:31:56 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-11 20:31:56 -0400
+
+
+Started POST "/characters" for 127.0.0.1 at 2016-05-11 20:32:18 -0400
+Processing by CharactersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1hnYk81Hltpxp5CahfrKRnOBbSiDzt+Yst4Mj/floeORjIKvtjTL1KQm4r4PYlYDdNgc8bqba5xnjOgTJDfGzQ==", "character"=>{"alias"=>"Black Panther", "first_name"=>"Tchalla", "last_name"=>"", "bio"=>"King of Wakanda", "universe_id"=>""}, "commit"=>"Create Character"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCharacter Exists (0.2ms)[0m  SELECT  1 AS one FROM "characters" WHERE LOWER("characters"."alias") = LOWER('Black Panther') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT "universes".* FROM "universes"
+  Rendered characters/_form.html.erb (3.5ms)
+  Rendered characters/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 5343ms (Views: 16.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/characters" for 127.0.0.1 at 2016-05-11 20:32:56 -0400
+Processing by CharactersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1hnYk81Hltpxp5CahfrKRnOBbSiDzt+Yst4Mj/floeORjIKvtjTL1KQm4r4PYlYDdNgc8bqba5xnjOgTJDfGzQ==", "character"=>{"alias"=>"Black Panther", "first_name"=>"Tchalla", "last_name"=>"", "bio"=>"King of Wakanda", "universe_id"=>""}, "commit"=>"Create Character"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCharacter Exists (0.2ms)[0m  SELECT  1 AS one FROM "characters" WHERE LOWER("characters"."alias") = LOWER('Black Panther') LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35mUniverse Load (0.2ms)[0m  SELECT "universes".* FROM "universes"
+  Rendered characters/_form.html.erb (17.8ms)
+  Rendered characters/new.html.erb within layouts/application (18.9ms)
+Completed 200 OK in 54ms (Views: 35.8ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-11 20:32:56 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-11 20:32:56 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-11 20:32:56 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-11 20:32:56 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-11 20:32:56 -0400
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 20:32:58 -0400
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.3ms)[0m  [1mSELECT "characters".* FROM "characters"[0m
+  [1m[35mUniverse Load (0.2ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/index.html.erb within layouts/application (14.0ms)
+Completed 200 OK in 27ms (Views: 25.2ms | ActiveRecord: 0.7ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateAbilities (20160512004339)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "abilities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160512004339"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCharacterAbilities (20160512004552)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "character_abilities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "character_id" integer, "ability_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160512004552"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "abilities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Strength"], ["created_at", "2016-05-12 00:54:04.240105"], ["updated_at", "2016-05-12 00:54:04.240105"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "abilities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Speed"], ["created_at", "2016-05-12 00:54:09.014298"], ["updated_at", "2016-05-12 00:54:09.014298"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "abilities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Flight"], ["created_at", "2016-05-12 00:54:13.350152"], ["updated_at", "2016-05-12 00:54:13.350152"]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mAbility Load (0.2ms)[0m  SELECT "abilities".* FROM "abilities"
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters"  ORDER BY "characters"."id" ASC LIMIT 1[0m
+  [1m[35mAbility Load (0.2ms)[0m  SELECT  "abilities".* FROM "abilities"  ORDER BY "abilities"."id" ASC LIMIT 1
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters"  ORDER BY "characters"."id" ASC LIMIT 1[0m
+  [1m[35mAbility Load (0.1ms)[0m  SELECT  "abilities".* FROM "abilities"  ORDER BY "abilities"."id" ASC LIMIT 1
+  [1m[36mAbility Load (0.2ms)[0m  [1mSELECT "abilities".* FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?[0m  [["character_id", 2]]
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT "characters".* FROM "characters" INNER JOIN "character_abilities" ON "characters"."id" = "character_abilities"."character_id" WHERE "character_abilities"."ability_id" = ?  [["ability_id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "character_abilities" ("ability_id", "character_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["ability_id", 1], ["character_id", 2], ["created_at", "2016-05-12 00:59:04.252578"], ["updated_at", "2016-05-12 00:59:04.252578"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mAbility Load (0.1ms)[0m  [1mSELECT "abilities".* FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?[0m  [["character_id", 2]]
+  [1m[35mAbility Load (0.2ms)[0m  SELECT  "abilities".* FROM "abilities" WHERE "abilities"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT "characters".* FROM "characters" INNER JOIN "character_abilities" ON "characters"."id" = "character_abilities"."character_id" WHERE "character_abilities"."ability_id" = ?[0m  [["ability_id", 1]]
+  [1m[35mCharacterAbility Load (0.1ms)[0m  SELECT "character_abilities".* FROM "character_abilities"
+
+
+Started GET "/characters/new" for 127.0.0.1 at 2016-05-11 21:02:09 -0400
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by CharactersController#new as HTML
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT "universes".* FROM "universes"[0m
+  Rendered characters/_form.html.erb (8.0ms)
+  Rendered characters/new.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 35ms (Views: 25.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/characters/new" for 127.0.0.1 at 2016-05-11 21:08:49 -0400
+Processing by CharactersController#new as HTML
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT "universes".* FROM "universes"
+  [1m[36mAbility Load (0.2ms)[0m  [1mSELECT "abilities".* FROM "abilities"[0m
+  Rendered characters/_form.html.erb (20.2ms)
+  Rendered characters/new.html.erb within layouts/application (21.2ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `abilities_id' for #<Character:0x007f8299eb8c50>):
+    39: 
+    40:   <p>
+    41:     <%= f.label :ability %>
+    42:     <%= collection_check_boxes(:character, :abilities_id, Ability.all, :id, :name) %>
+    43:   </p>
+    44: 
+    45:   <%= f.submit %>
+  app/views/characters/_form.html.erb:42:in `block in _app_views_characters__form_html_erb___3744791059852727146_70099452351880'
+  app/views/characters/_form.html.erb:1:in `_app_views_characters__form_html_erb___3744791059852727146_70099452351880'
+  app/views/characters/new.html.erb:5:in `_app_views_characters_new_html_erb___2726028374667193168_70099408387400'
+
+
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (8.2ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.2ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (28.6ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.5ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.6ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (19.3ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (41.5ms)
+
+
+Started GET "/characters/new" for 127.0.0.1 at 2016-05-11 21:09:10 -0400
+Processing by CharactersController#new as HTML
+  [1m[35mUniverse Load (0.2ms)[0m  SELECT "universes".* FROM "universes"
+  [1m[36mAbility Load (0.2ms)[0m  [1mSELECT "abilities".* FROM "abilities"[0m
+  Rendered characters/_form.html.erb (8.8ms)
+  Rendered characters/new.html.erb within layouts/application (9.8ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.4ms)
+
+ActionView::Template::Error (undefined method `ability_id' for #<Character:0x007f8299df8270>):
+    39: 
+    40:   <p>
+    41:     <%= f.label :ability %>
+    42:     <%= collection_check_boxes(:character, :ability_id, Ability.all, :id, :name) %>
+    43:   </p>
+    44: 
+    45:   <%= f.submit %>
+  app/views/characters/_form.html.erb:42:in `block in _app_views_characters__form_html_erb___3744791059852727146_70099466076800'
+  app/views/characters/_form.html.erb:1:in `_app_views_characters__form_html_erb___3744791059852727146_70099466076800'
+  app/views/characters/new.html.erb:5:in `_app_views_characters_new_html_erb___2726028374667193168_70099408387400'
+
+
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.6ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (22.6ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (14.2ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (31.7ms)
+
+
+Started GET "/characters/new" for 127.0.0.1 at 2016-05-11 21:09:31 -0400
+Processing by CharactersController#new as HTML
+  [1m[35mUniverse Load (0.2ms)[0m  SELECT "universes".* FROM "universes"
+  [1m[36mAbility Load (0.1ms)[0m  [1mSELECT "abilities".* FROM "abilities"[0m
+  Rendered characters/_form.html.erb (21.8ms)
+  Rendered characters/new.html.erb within layouts/application (22.6ms)
+Completed 200 OK in 39ms (Views: 38.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-11 21:09:31 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-11 21:09:31 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-11 21:09:31 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-11 21:09:31 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-11 21:09:31 -0400
+
+
+Started GET "/characters/new" for 127.0.0.1 at 2016-05-11 21:10:06 -0400
+Processing by CharactersController#new as HTML
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT "universes".* FROM "universes"
+  [1m[36mAbility Load (0.1ms)[0m  [1mSELECT "abilities".* FROM "abilities"[0m
+  Rendered characters/_form.html.erb (5.1ms)
+  Rendered characters/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-11 21:10:06 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-11 21:10:06 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-11 21:10:06 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-11 21:10:06 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-11 21:10:06 -0400
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 21:10:18 -0400
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.3ms)[0m  SELECT "characters".* FROM "characters"
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered characters/index.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 22ms (Views: 21.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/characters/new" for 127.0.0.1 at 2016-05-11 21:10:21 -0400
+Processing by CharactersController#new as HTML
+  [1m[36mUniverse Load (0.2ms)[0m  [1mSELECT "universes".* FROM "universes"[0m
+  [1m[35mAbility Load (0.1ms)[0m  SELECT "abilities".* FROM "abilities"
+  Rendered characters/_form.html.erb (6.0ms)
+  Rendered characters/new.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/characters/new" for 127.0.0.1 at 2016-05-11 21:10:42 -0400
+Processing by CharactersController#new as HTML
+  [1m[36mUniverse Load (0.2ms)[0m  [1mSELECT "universes".* FROM "universes"[0m
+  [1m[35mAbility Load (0.2ms)[0m  SELECT "abilities".* FROM "abilities"
+  Rendered characters/_form.html.erb (24.9ms)
+  Rendered characters/new.html.erb within layouts/application (25.6ms)
+Completed 200 OK in 45ms (Views: 36.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-11 21:10:42 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-11 21:10:42 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-11 21:10:42 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-11 21:10:42 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-11 21:10:42 -0400
+
+
+Started POST "/characters" for 127.0.0.1 at 2016-05-11 21:11:09 -0400
+Processing by CharactersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"T6em5N+oHQKomkTzQL8lk1OO/bw5/iCAkHqkLi/90L4IMvzYpNtADH0bNtfKJ7nWVNeMZQCrlIRFKECy/C+3kA==", "character"=>{"alias"=>"Black Panther", "first_name"=>"Tchalla", "last_name"=>"", "bio"=>"", "universe_id"=>"1", "ability_ids"=>["1", "2", ""]}, "commit"=>"Create Character"}
+Unpermitted parameter: ability_ids
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCharacter Exists (0.2ms)[0m  SELECT  1 AS one FROM "characters" WHERE LOWER("characters"."alias") = LOWER('Black Panther') LIMIT 1
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "characters" ("alias", "first_name", "last_name", "universe_id", "bio", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)  [["alias", "Black Panther"], ["first_name", "Tchalla"], ["last_name", ""], ["universe_id", 1], ["bio", ""], ["created_at", "2016-05-12 01:13:35.728862"], ["updated_at", "2016-05-12 01:13:35.728862"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/characters
+Completed 302 Found in 146261ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 21:13:35 -0400
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT "characters".* FROM "characters"
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/index.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 25ms (Views: 24.0ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/characters/14" for 127.0.0.1 at 2016-05-11 21:14:10 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 16ms (Views: 11.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/characters/14/edit" for 127.0.0.1 at 2016-05-11 21:14:18 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mUniverse Load (0.2ms)[0m  [1mSELECT "universes".* FROM "universes"[0m
+  [1m[35mAbility Load (0.1ms)[0m  SELECT "abilities".* FROM "abilities"
+  [1m[36m (0.2ms)[0m  [1mSELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?[0m  [["character_id", 14]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?[0m  [["character_id", 14]]
+  Rendered characters/_form.html.erb (8.8ms)
+  Rendered characters/edit.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 22ms (Views: 20.3ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/characters/14" for 127.0.0.1 at 2016-05-11 21:14:34 -0400
+Processing by CharactersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"F8Buc7yaPkV12Bx0ltWd1uMG0wCk6JhcK1bl/qdwYaZQVTRPx+ljS6BZblAcTQGT5F+i2Z29LFj+BAFidKIGiA==", "character"=>{"alias"=>"Black Panther", "first_name"=>"Tchalla", "last_name"=>"", "bio"=>"", "universe_id"=>"1", "ability_ids"=>["1", "2", ""]}, "commit"=>"Update Character", "id"=>"14"}
+  [1m[35mCharacter Load (0.4ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 14]]
+Unpermitted parameter: ability_ids
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCharacter Exists (0.2ms)[0m  SELECT  1 AS one FROM "characters" WHERE (LOWER("characters"."alias") = LOWER('Black Panther') AND "characters"."id" != 14) LIMIT 1
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/characters/14
+Completed 302 Found in 8ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/characters/14" for 127.0.0.1 at 2016-05-11 21:14:34 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 14]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered characters/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 29ms (Views: 27.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters/14/edit" for 127.0.0.1 at 2016-05-11 21:14:45 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 14]]
+  [1m[35mUniverse Load (0.4ms)[0m  SELECT "universes".* FROM "universes"
+  [1m[36mAbility Load (0.1ms)[0m  [1mSELECT "abilities".* FROM "abilities"[0m
+  [1m[35m (0.1ms)[0m  SELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?[0m  [["character_id", 14]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 14]]
+  Rendered characters/_form.html.erb (8.8ms)
+  Rendered characters/edit.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/characters/14/edit" for 127.0.0.1 at 2016-05-11 21:15:09 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mCharacter Load (0.3ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 14]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT "universes".* FROM "universes"
+  [1m[36mAbility Load (0.1ms)[0m  [1mSELECT "abilities".* FROM "abilities"[0m
+  [1m[35m (0.1ms)[0m  SELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?[0m  [["character_id", 14]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 14]]
+  Rendered characters/_form.html.erb (21.9ms)
+  Rendered characters/edit.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 47ms (Views: 33.8ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-11 21:15:09 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-11 21:15:09 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-11 21:15:09 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-11 21:15:09 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-11 21:15:09 -0400
+
+
+Started PATCH "/characters/14" for 127.0.0.1 at 2016-05-11 21:15:13 -0400
+Processing by CharactersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"n+nSEGNVU+qwi31+YX4Kh/yTVrGA/FI19yp/+P2dLZvYfIgsGCYO5GUKD1rr5pbC+8onaLmp5jEieJtkLk9KtQ==", "character"=>{"alias"=>"Black Panther", "first_name"=>"Tchalla", "last_name"=>"", "bio"=>"", "universe_id"=>"1", "ability_ids"=>["1", "2", ""]}, "commit"=>"Update Character", "id"=>"14"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 14]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAbility Load (0.6ms)[0m  [1mSELECT "abilities".* FROM "abilities" WHERE "abilities"."id" IN (1, 2)[0m
+  [1m[35mAbility Load (0.1ms)[0m  SELECT "abilities".* FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 14]]
+  [1m[36mSQL (1.3ms)[0m  [1mINSERT INTO "character_abilities" ("character_id", "ability_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["character_id", 14], ["ability_id", 1], ["created_at", "2016-05-12 01:15:13.451622"], ["updated_at", "2016-05-12 01:15:13.451622"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "character_abilities" ("character_id", "ability_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["character_id", 14], ["ability_id", 2], ["created_at", "2016-05-12 01:15:13.454921"], ["updated_at", "2016-05-12 01:15:13.454921"]]
+  [1m[36mCharacter Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "characters" WHERE (LOWER("characters"."alias") = LOWER('Black Panther') AND "characters"."id" != 14) LIMIT 1[0m
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/characters/14
+Completed 302 Found in 26ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/characters/14" for 127.0.0.1 at 2016-05-11 21:15:13 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 12ms (Views: 9.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/characters/14/edit" for 127.0.0.1 at 2016-05-11 21:15:14 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mUniverse Load (0.3ms)[0m  [1mSELECT "universes".* FROM "universes"[0m
+  [1m[35mAbility Load (0.2ms)[0m  SELECT "abilities".* FROM "abilities"
+  [1m[36m (0.2ms)[0m  [1mSELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?[0m  [["character_id", 14]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 14]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?[0m  [["character_id", 14]]
+  Rendered characters/_form.html.erb (15.1ms)
+  Rendered characters/edit.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 39ms (Views: 36.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 21:15:23 -0400
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.4ms)[0m  SELECT "characters".* FROM "characters"
+  [1m[36mUniverse Load (0.2ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUniverse Load (0.2ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/index.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 25ms (Views: 23.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/characters/2" for 127.0.0.1 at 2016-05-11 21:15:25 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUniverse Load (0.2ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/show.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 12ms (Views: 11.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 21:15:40 -0400
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT "characters".* FROM "characters"
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/index.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 24ms (Views: 22.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/characters/2" for 127.0.0.1 at 2016-05-11 21:15:42 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/show.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.2ms)
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters"  ORDER BY "characters"."id" DESC LIMIT 1[0m
+  [1m[35mAbility Load (0.2ms)[0m  SELECT "abilities".* FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 14]]
+
+
+Started GET "/characters/2" for 127.0.0.1 at 2016-05-11 21:19:40 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/show.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-11 21:19:40 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-11 21:19:40 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-11 21:19:40 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-11 21:19:40 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-11 21:19:40 -0400
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 21:19:57 -0400
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.5ms)[0m  SELECT "characters".* FROM "characters"
+  [1m[36mUniverse Load (0.2ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/index.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 26ms (Views: 24.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/characters/14" for 127.0.0.1 at 2016-05-11 21:19:59 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters/14" for 127.0.0.1 at 2016-05-11 21:20:24 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 14]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mAbility Load (0.1ms)[0m  SELECT "abilities".* FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 14]]
+  Rendered characters/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-11 21:20:24 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-11 21:20:24 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-11 21:20:24 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-11 21:20:24 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-11 21:20:24 -0400
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 21:20:29 -0400
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.2ms)[0m  [1mSELECT "characters".* FROM "characters"[0m
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered characters/index.html.erb within layouts/application (9.5ms)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/characters/2" for 127.0.0.1 at 2016-05-11 21:20:30 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mAbility Load (0.1ms)[0m  [1mSELECT "abilities".* FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?[0m  [["character_id", 2]]
+  Rendered characters/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 21:20:35 -0400
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT "characters".* FROM "characters"
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/index.html.erb within layouts/application (13.2ms)
+Completed 200 OK in 24ms (Views: 22.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/characters/4" for 127.0.0.1 at 2016-05-11 21:20:37 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mAbility Load (0.1ms)[0m  SELECT "abilities".* FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 4]]
+  Rendered characters/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters/4/edit" for 127.0.0.1 at 2016-05-11 21:20:41 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT "universes".* FROM "universes"
+  [1m[36mAbility Load (0.4ms)[0m  [1mSELECT "abilities".* FROM "abilities"[0m
+  [1m[35m (0.1ms)[0m  SELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?[0m  [["character_id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 4]]
+  Rendered characters/_form.html.erb (11.4ms)
+  Rendered characters/edit.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 24ms (Views: 22.4ms | ActiveRecord: 0.8ms)
+
+
+Started PATCH "/characters/4" for 127.0.0.1 at 2016-05-11 21:20:48 -0400
+Processing by CharactersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qbH6V+drJwytXSuzHjy7SwGpX+J1h0sQeSotfj+kvjDuJKBrnBh6AnjcWZeUpCcOBvAuO0zS/xSseMni7HbZHg==", "character"=>{"alias"=>"Ultimate Spiderman", "first_name"=>"Peter", "last_name"=>"Parker", "bio"=>"", "universe_id"=>"1", "ability_ids"=>["1", ""]}, "commit"=>"Update Character", "id"=>"4"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAbility Load (0.3ms)[0m  [1mSELECT  "abilities".* FROM "abilities" WHERE "abilities"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mAbility Load (0.2ms)[0m  SELECT "abilities".* FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 4]]
+  [1m[36mSQL (1.1ms)[0m  [1mINSERT INTO "character_abilities" ("character_id", "ability_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["character_id", 4], ["ability_id", 1], ["created_at", "2016-05-12 01:20:48.592121"], ["updated_at", "2016-05-12 01:20:48.592121"]]
+  [1m[35mCharacter Exists (0.1ms)[0m  SELECT  1 AS one FROM "characters" WHERE (LOWER("characters"."alias") = LOWER('Ultimate Spiderman') AND "characters"."id" != 4) LIMIT 1
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mSQL (0.2ms)[0m  UPDATE "characters" SET "bio" = ?, "updated_at" = ? WHERE "characters"."id" = ?  [["bio", ""], ["updated_at", "2016-05-12 01:20:48.596240"], ["id", 4]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/characters/4
+Completed 302 Found in 16ms (ActiveRecord: 3.1ms)
+
+
+Started GET "/characters/4" for 127.0.0.1 at 2016-05-11 21:20:48 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mAbility Load (0.1ms)[0m  SELECT "abilities".* FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 4]]
+  Rendered characters/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 13ms (Views: 11.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 21:20:53 -0400
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.2ms)[0m  [1mSELECT "characters".* FROM "characters"[0m
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUniverse Load (0.3ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered characters/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 22ms (Views: 20.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/characters/7" for 127.0.0.1 at 2016-05-11 21:20:55 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mCharacter Load (0.2ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 7]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mAbility Load (0.1ms)[0m  [1mSELECT "abilities".* FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?[0m  [["character_id", 7]]
+  Rendered characters/show.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 24ms (Views: 22.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/characters/7/edit" for 127.0.0.1 at 2016-05-11 21:20:57 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 7]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT "universes".* FROM "universes"[0m
+  [1m[35mAbility Load (0.2ms)[0m  SELECT "abilities".* FROM "abilities"
+  [1m[36m (0.1ms)[0m  [1mSELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?[0m  [["character_id", 7]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 7]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?[0m  [["character_id", 7]]
+  Rendered characters/_form.html.erb (6.1ms)
+  Rendered characters/edit.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 18ms (Views: 15.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-11 21:21:03 -0400
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT "characters".* FROM "characters"
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/characters/10" for 127.0.0.1 at 2016-05-11 21:21:05 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mAbility Load (0.1ms)[0m  SELECT "abilities".* FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 10]]
+  Rendered characters/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 14ms (Views: 12.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters/10/edit" for 127.0.0.1 at 2016-05-11 21:21:06 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT "universes".* FROM "universes"
+  [1m[36mAbility Load (0.4ms)[0m  [1mSELECT "abilities".* FROM "abilities"[0m
+  [1m[35m (0.1ms)[0m  SELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?[0m  [["character_id", 10]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 10]]
+  Rendered characters/_form.html.erb (7.9ms)
+  Rendered characters/edit.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/characters/10" for 127.0.0.1 at 2016-05-11 21:21:11 -0400
+Processing by CharactersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OdoYaaQ5EwJc0vekAM8LfD/78Xl9ewISP93Z9vkvQZJ+T0JV30pODIlThYCKV5c5OKKAoEQuthbqjz1qKv0mvA==", "character"=>{"alias"=>"Supergirl", "first_name"=>"Rebecca", "last_name"=>"Kent", "bio"=>"", "universe_id"=>"2", "ability_ids"=>["1", "2", "3", ""]}, "commit"=>"Update Character", "id"=>"10"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 10]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAbility Load (0.8ms)[0m  [1mSELECT "abilities".* FROM "abilities" WHERE "abilities"."id" IN (1, 2, 3)[0m
+  [1m[35mAbility Load (0.1ms)[0m  SELECT "abilities".* FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 10]]
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "character_abilities" ("character_id", "ability_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["character_id", 10], ["ability_id", 1], ["created_at", "2016-05-12 01:21:11.244381"], ["updated_at", "2016-05-12 01:21:11.244381"]]
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "character_abilities" ("character_id", "ability_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["character_id", 10], ["ability_id", 2], ["created_at", "2016-05-12 01:21:11.246846"], ["updated_at", "2016-05-12 01:21:11.246846"]]
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "character_abilities" ("character_id", "ability_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["character_id", 10], ["ability_id", 3], ["created_at", "2016-05-12 01:21:11.248402"], ["updated_at", "2016-05-12 01:21:11.248402"]]
+  [1m[35mCharacter Exists (0.1ms)[0m  SELECT  1 AS one FROM "characters" WHERE (LOWER("characters"."alias") = LOWER('Supergirl') AND "characters"."id" != 10) LIMIT 1
+  [1m[36mUniverse Load (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mSQL (0.1ms)[0m  UPDATE "characters" SET "bio" = ?, "updated_at" = ? WHERE "characters"."id" = ?  [["bio", ""], ["updated_at", "2016-05-12 01:21:11.250512"], ["id", 10]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/characters/10
+Completed 302 Found in 17ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/characters/10" for 127.0.0.1 at 2016-05-11 21:21:11 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36mUniverse Load (0.2ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mAbility Load (0.1ms)[0m  SELECT "abilities".* FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 10]]
+  Rendered characters/show.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.3ms)

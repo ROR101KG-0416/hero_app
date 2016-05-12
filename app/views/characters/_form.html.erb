@@ -28,9 +28,31 @@
   </p>
 
   <p>
+    <%= f.label :bio %><br>
+    <%= f.text_area :bio %>
+  </p>
+
+  <p>
     <%= f.label :universe %><br>
-    <%= f.text_field :universe %>
+    <%= collection_select(:character, :universe_id, Universe.all, :id, :name, include_blank: true) %>
+  </p>
+
+  <p>
+    <%= f.label :ability, "Abilities" %> <br>
+    <%= collection_check_boxes(:character, :ability_ids, Ability.all, :id, :name) %>
   </p>
 
   <%= f.submit %>
 <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
