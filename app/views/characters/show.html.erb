@@ -21,5 +21,8 @@
 
 <% end %>
 
-<%= link_to "edit", edit_character_path(@character) %>
+<% if current_user %>
+  <%= link_to "edit", edit_character_path(@character) %>
+<% end %>
+
 

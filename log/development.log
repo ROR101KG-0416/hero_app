@@ -6142,3 +6142,856 @@ Processing by CharactersController#show as HTML
   [1m[35mAbility Load (0.1ms)[0m  SELECT "abilities".* FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 10]]
   Rendered characters/show.html.erb within layouts/application (2.4ms)
 Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.3ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateUsers (20160516224633)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  select sqlite_version(*)
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160516224633"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-16 18:57:10 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/devise-3.5.6/app/views/devise/shared/_links.html.erb (1.2ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/devise-3.5.6/app/views/devise/sessions/new.html.erb within layouts/application (34.2ms)
+Completed 200 OK in 1046ms (Views: 1024.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-05-16 18:57:50 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/devise-3.5.6/app/views/devise/shared/_links.html.erb (0.4ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/devise-3.5.6/app/views/devise/registrations/new.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 24ms (Views: 22.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2016-05-16 18:58:41 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JCrD4GiCgT1J9+nXBkISu/3eeeK5ZD4EF2vod02Iblpjv5ncE/HcM5x2m/OM2o7++ocIO4AxigDCOQzrnloJdA==", "user"=>{"email"=>"kareem.grant@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'kareem.grant@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "kareem.grant@gmail.com"], ["encrypted_password", "$2a$10$/pMmpWPX55RAcN8HaX1wSef5FWGC6CJjt1q0GZKLz6586VfMjQcZG"], ["created_at", "2016-05-16 22:58:42.005892"], ["updated_at", "2016-05-16 22:58:42.005892"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["last_sign_in_at", "2016-05-16 22:58:42.009955"], ["current_sign_in_at", "2016-05-16 22:58:42.009955"], ["last_sign_in_ip", "127.0.0.1"], ["current_sign_in_ip", "127.0.0.1"], ["sign_in_count", 1], ["updated_at", "2016-05-16 22:58:42.010618"], ["id", 1]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 120ms (ActiveRecord: 3.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-16 18:58:42 -0400
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.5ms)[0m  [1mSELECT "characters".* FROM "characters"[0m
+  [1m[35mUniverse Load (0.4ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered characters/index.html.erb within layouts/application (34.8ms)
+Completed 200 OK in 68ms (Views: 45.5ms | ActiveRecord: 1.8ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-16 19:20:23 -0400
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 29ms (Views: 27.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-16 19:20:23 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-16 19:20:23 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-16 19:20:23 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-16 19:20:23 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-16 19:20:23 -0400
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-16 20:59:37 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (1.5ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 32504ms (Views: 32492.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-16 21:00:10 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-16 21:00:10 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-16 21:00:10 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-16 21:00:10 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-16 21:00:10 -0400
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2016-05-16 21:00:57 -0400
+
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.5ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (57.6ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (94.7ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (28.2ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (53.9ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2016-05-16 21:00:57 -0400
+
+ActionController::RoutingError (No route matches [GET] "/users/sign_out"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.3ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (28.5ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (16.2ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (33.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-16 21:01:56 -0400
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 7148ms (Views: 7147.5ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-16 21:02:03 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-16 21:02:03 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-16 21:02:03 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-16 21:02:03 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-16 21:02:03 -0400
+
+
+Started DELETE "/users/sign_out" for 127.0.0.1 at 2016-05-16 21:02:06 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"Wpfgrf8At1ZxyaEy+q0W84bBVb4VhMdhdBSZxRxPJ1UdArqRhHPqWKRI0xZwNYq2gZgkZyzRc2WhRn1Zz51Aew=="}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-16 21:02:06 -0400
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 42677ms (ActiveRecord: 0.0ms)
+
+ActionView::Template::Error (wrong number of arguments (0 for 1+)):
+    12:       <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+    13:     <% else %>
+    14:       <%= link_to "Sign in", new_user_session_path %> |
+    15:       <%= link_to "Register", new_registration_path %>
+    16:     <% end %>
+    17: 
+    18:     <% flash.each do |name, msg| %>
+  app/views/layouts/application.html.erb:15:in `_app_views_layouts_application_html_erb___3845573272124704712_70194114291480'
+
+
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.2ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (25.5ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (18.5ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.6ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/kareemgrant/.rbenv/versions/2.1.5/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (39.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-16 21:04:26 -0400
+Processing by StaticPagesController#home as HTML
+  Rendered static_pages/home.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 17ms (Views: 16.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-16 21:04:26 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-16 21:04:26 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-16 21:04:26 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-16 21:04:26 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-16 21:04:26 -0400
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-05-16 21:04:30 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (1.1ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (29.8ms)
+Completed 200 OK in 46ms (Views: 44.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-16 21:04:35 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 21ms (Views: 18.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-16 21:04:38 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 14ms (Views: 13.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-05-16 21:04:39 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-05-16 21:05:00 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 20ms (Views: 18.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-16 21:05:00 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-16 21:05:00 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-16 21:05:00 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-16 21:05:00 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-16 21:05:00 -0400
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-16 21:05:01 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 21ms (Views: 19.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-05-16 21:05:02 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.2ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-16 21:05:02 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 18ms (Views: 15.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-05-16 21:05:03 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 17ms (Views: 15.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-16 21:05:03 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 18ms (Views: 16.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-05-16 21:05:04 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 15ms (Views: 13.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-05-16 21:10:24 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 30ms (Views: 22.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-16 21:10:24 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-16 21:10:24 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-16 21:10:24 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-16 21:10:24 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-16 21:10:24 -0400
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-16 21:10:29 -0400
+Processing by CharactersController#index as HTML
+  [1m[36mCharacter Load (0.5ms)[0m  [1mSELECT "characters".* FROM "characters"[0m
+  [1m[35mUniverse Load (0.5ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered characters/index.html.erb within layouts/application (42.8ms)
+Completed 200 OK in 84ms (Views: 54.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/characters/2/edit" for 127.0.0.1 at 2016-05-16 21:10:31 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT "universes".* FROM "universes"
+  [1m[36mAbility Load (0.5ms)[0m  [1mSELECT "abilities".* FROM "abilities"[0m
+  [1m[35m (0.2ms)[0m  SELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?[0m  [["character_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 2]]
+  Rendered characters/_form.html.erb (45.5ms)
+  Rendered characters/edit.html.erb within layouts/application (47.5ms)
+Completed 200 OK in 59ms (Views: 55.9ms | ActiveRecord: 1.4ms)
+
+
+Started PATCH "/characters/2" for 127.0.0.1 at 2016-05-16 21:10:41 -0400
+Processing by CharactersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"f0f3pJgNQL+8A2Me0JX+jykBVvyGSNWZ4XqdKixLGnQeRE15o06oh8R/uh/r7sYayd7i9LR0qxEeBbkDQMuhCw==", "character"=>{"alias"=>"Captain America", "first_name"=>"Steve", "last_name"=>"Rogers", "bio"=>"The First Avenger ", "universe_id"=>"1", "ability_ids"=>["1", ""]}, "commit"=>"Update Character", "id"=>"2"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mAbility Load (0.2ms)[0m  [1mSELECT  "abilities".* FROM "abilities" WHERE "abilities"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mAbility Load (0.2ms)[0m  SELECT "abilities".* FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 2]]
+  [1m[36mCharacter Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM "characters" WHERE (LOWER("characters"."alias") = LOWER('Captain America') AND "characters"."id" != 2) LIMIT 1[0m
+  [1m[35mUniverse Load (0.2ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mSQL (0.8ms)[0m  [1mUPDATE "characters" SET "bio" = ?, "updated_at" = ? WHERE "characters"."id" = ?[0m  [["bio", "The First Avenger "], ["updated_at", "2016-05-17 01:10:41.466334"], ["id", 2]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/characters/2
+Completed 302 Found in 19ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/characters/2" for 127.0.0.1 at 2016-05-16 21:10:41 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCharacter Load (0.2ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mAbility Load (0.1ms)[0m  [1mSELECT "abilities".* FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?[0m  [["character_id", 2]]
+  Rendered characters/show.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 14ms (Views: 12.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/characters/2" for 127.0.0.1 at 2016-05-16 21:12:04 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUniverse Load (0.4ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mAbility Load (0.1ms)[0m  SELECT "abilities".* FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 2]]
+  Rendered characters/show.html.erb within layouts/application (21.9ms)
+Completed 200 OK in 53ms (Views: 41.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-16 21:12:04 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-16 21:12:04 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-16 21:12:04 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-16 21:12:04 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-16 21:12:04 -0400
+
+
+Started GET "/characters/2/edit" for 127.0.0.1 at 2016-05-16 21:12:13 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUniverse Load (0.6ms)[0m  SELECT "universes".* FROM "universes"
+  [1m[36mAbility Load (0.2ms)[0m  [1mSELECT "abilities".* FROM "abilities"[0m
+  [1m[35m (0.1ms)[0m  SELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?[0m  [["character_id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "abilities".id FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 2]]
+  Rendered characters/_form.html.erb (9.6ms)
+  Rendered characters/edit.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 24ms (Views: 22.2ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/characters/2" for 127.0.0.1 at 2016-05-16 21:12:17 -0400
+Processing by CharactersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pFhpE+obhpMxmPEiXIS1DgIrydspneQZ1DK/F1EaDRLFW9PO0Vhuq0nkKCNn/42b4vR90xuhmpErTZs+PZq2bQ==", "character"=>{"alias"=>"Captain America", "first_name"=>"Steve", "last_name"=>"Rogers", "bio"=>"The First Avenger ", "universe_id"=>"1", "ability_ids"=>["1", ""]}, "commit"=>"Update Character", "id"=>"2"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-16 21:12:17 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.4ms)
+Completed 200 OK in 39ms (Views: 32.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-16 21:12:31 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-16 21:12:46 -0400
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.7ms)[0m  SELECT "characters".* FROM "characters"
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUniverse Load (0.2ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/index.html.erb within layouts/application (23.8ms)
+Completed 200 OK in 45ms (Views: 38.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/characters/2/edit" for 127.0.0.1 at 2016-05-16 21:12:54 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 2]]
+Completed 401 Unauthorized in 10ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-16 21:12:54 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 34ms (Views: 23.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/characters/2/edit" for 127.0.0.1 at 2016-05-16 21:14:09 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 401 Unauthorized in 14ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-16 21:14:09 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 31ms (Views: 22.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-16 21:14:09 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-16 21:14:09 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-16 21:14:09 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-16 21:14:09 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-16 21:14:09 -0400
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-16 21:14:15 -0400
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT "characters".* FROM "characters"
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/index.html.erb within layouts/application (24.1ms)
+Completed 200 OK in 38ms (Views: 37.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/characters/2" for 127.0.0.1 at 2016-05-16 21:14:18 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCharacter Load (0.3ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mAbility Load (0.1ms)[0m  SELECT "abilities".* FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 2]]
+  Rendered characters/show.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 28ms (Views: 24.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/characters/2/edit" for 127.0.0.1 at 2016-05-16 21:14:20 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-16 21:14:20 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 20ms (Views: 17.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-16 21:16:50 -0400
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT "characters".* FROM "characters"
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 19ms (Views: 18.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-16 21:16:50 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-16 21:16:50 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-16 21:16:50 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-16 21:16:50 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-16 21:16:50 -0400
+
+
+Started GET "/characters" for 127.0.0.1 at 2016-05-16 21:17:24 -0400
+Processing by CharactersController#index as HTML
+  [1m[35mCharacter Load (0.2ms)[0m  SELECT "characters".* FROM "characters"
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mUniverse Load (0.3ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered characters/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 27ms (Views: 25.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-16 21:17:24 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-16 21:17:24 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-16 21:17:24 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-16 21:17:24 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-16 21:17:24 -0400
+
+
+Started GET "/characters/2" for 127.0.0.1 at 2016-05-16 21:17:27 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36mUniverse Load (0.1ms)[0m  [1mSELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mAbility Load (0.1ms)[0m  SELECT "abilities".* FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?  [["character_id", 2]]
+  Rendered characters/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/characters/2" for 127.0.0.1 at 2016-05-16 21:18:49 -0400
+Processing by CharactersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35mUniverse Load (0.1ms)[0m  SELECT  "universes".* FROM "universes" WHERE "universes"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mAbility Load (0.1ms)[0m  [1mSELECT "abilities".* FROM "abilities" INNER JOIN "character_abilities" ON "abilities"."id" = "character_abilities"."ability_id" WHERE "character_abilities"."character_id" = ?[0m  [["character_id", 2]]
+  Rendered characters/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 17ms (Views: 15.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-16 21:18:49 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-16 21:18:49 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-16 21:18:49 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-16 21:18:49 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-16 21:18:49 -0400
+
+
+Started GET "/characters/2/edit" for 127.0.0.1 at 2016-05-16 21:19:38 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mCharacter Load (0.1ms)[0m  SELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1  [["id", 2]]
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-16 21:19:38 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.8ms)
+Completed 200 OK in 18ms (Views: 17.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-16 21:20:23 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 21ms (Views: 20.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-16 21:20:23 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-16 21:20:23 -0400
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-16 21:20:23 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-16 21:20:23 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-16 21:20:23 -0400
+
+
+Started GET "/characters/2/edit" for 127.0.0.1 at 2016-05-16 21:20:35 -0400
+Processing by CharactersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mCharacter Load (0.1ms)[0m  [1mSELECT  "characters".* FROM "characters" WHERE "characters"."id" = ? LIMIT 1[0m  [["id", 2]]
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-05-16 21:20:35 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 20ms (Views: 18.6ms | ActiveRecord: 0.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddFirstNameAndLastNameToUser (20160517012234)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (1.1ms)[0m  [1mALTER TABLE "users" ADD "first_name" varchar[0m
+  [1m[35m (0.2ms)[0m  ALTER TABLE "users" ADD "last_name" varchar
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160517012234"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-05-16 21:24:11 -0400
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 32ms (Views: 22.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2016-05-16 21:25:09 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (0.3ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 23ms (Views: 22.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 127.0.0.1 at 2016-05-16 21:25:09 -0400
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for 127.0.0.1 at 2016-05-16 21:25:09 -0400
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 127.0.0.1 at 2016-05-16 21:25:09 -0400
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for 127.0.0.1 at 2016-05-16 21:25:09 -0400
+
+
+Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bdc39dee783419a69d7ca819.js?body=1" for 127.0.0.1 at 2016-05-16 21:25:09 -0400

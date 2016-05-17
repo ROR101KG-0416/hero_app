@@ -1,10 +1,12 @@
 class CharactersController < ApplicationController
+  before_action :find_character, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @characters = Character.all
   end
 
   def show
-    @character = Character.find_by_id(params[:id])
   end
 
   def new
@@ -25,12 +27,9 @@ class CharactersController < ApplicationController
   end
 
   def edit
-    @character = Character.find_by_id(params[:id])
   end
 
   def update
-    @character = Character.find_by_id(params[:id])
-
     if @character.update(character_params)
       # redirect to show action
       redirect_to character_path(@character), notice: "Character was updated successfully"
@@ -41,13 +40,16 @@ class CharactersController < ApplicationController
   end
 
   def destroy
-    @character = Character.find_by_id(params[:id])
     @character.delete
 
     redirect_to characters_path
   end
 
   private
+
+  def find_character
+    @character = Character.find_by_id(params[:id])
+  end
 
   def character_params
     params.require(:character).permit(:alias, :first_name, :last_name, :universe_id, :bio, :ability_ids => [])
