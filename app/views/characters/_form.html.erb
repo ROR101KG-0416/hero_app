@@ -1,4 +1,4 @@
-<%= form_for @character do |f| %>
+<%= form_for @character, html: { multipart: true } do |f| %>
 
   <% if @character.errors.any? %>
     <div id="error_explanation">
@@ -40,6 +40,11 @@
   <p>
     <%= f.label :ability, "Abilities" %> <br>
     <%= collection_check_boxes(:character, :ability_ids, Ability.all, :id, :name) %>
+  </p>
+
+  <p>
+    <%= f.label :photo %>
+    <%= f.file_field :photo %>
   </p>
 
   <%= f.submit %>

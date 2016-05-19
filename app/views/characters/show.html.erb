@@ -1,6 +1,8 @@
 <%= link_to 'return to characters list', characters_path %>
+<br/>
 
 <% if @character %>
+  <%= image_tag @character.photo.url(:medium), class: 'profile_pic' %>
 
   <h1><%= @character.alias %></h1>
   <p>First Name: <%= @character.first_name %></p>

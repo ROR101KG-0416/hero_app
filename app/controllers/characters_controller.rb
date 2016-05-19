@@ -52,7 +52,7 @@ class CharactersController < ApplicationController
   end
 
   def character_params
-    params.require(:character).permit(:alias, :first_name, :last_name, :universe_id, :bio, :ability_ids => [])
+    params.require(:character).permit(:alias, :first_name, :last_name, :universe_id, :bio, :photo, :ability_ids => [])
   end
 end
 
