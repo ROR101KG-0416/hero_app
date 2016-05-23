@@ -1,54 +1,61 @@
-<%= form_for @character, html: { multipart: true } do |f| %>
+<div class="row">
+  <div class="col-md-4">
+    <%= form_for @character, html: { multipart: true } do |f| %>
 
-  <% if @character.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@character.errors.count, "error") %> prohibited this character from being saved:</h2>
+    <% if @character.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@character.errors.count, "error") %> prohibited this character from being saved:</h2>
 
-      <ul>
-      <% @character.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @character.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :alias %><br>
+      <%= f.text_field :alias, class: 'form-control' %>
     </div>
+
+    <div class="form-group">
+      <%= f.label :first_name %><br>
+      <%= f.text_field :first_name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :last_name %><br>
+      <%= f.text_field :last_name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :bio %><br>
+      <%= f.text_area :bio, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :universe %><br>
+      <%= collection_select(:character, :universe_id, Universe.all, :id, :name, include_blank: true) %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :ability, "Abilities" %> <br>
+      <%= collection_check_boxes(:character, :ability_ids, Ability.all, :id, :name) %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :photo %>
+      <%= f.file_field :photo, class: 'form-control' %>
+    </p>
+
+    <%= f.submit class: 'btn btn-primary' %>
   <% end %>
-  
-  <p>
-    <%= f.label :alias %><br>
-    <%= f.text_field :alias %>
-  </p>
+    
+  </div>
+</div>
 
-   <p>
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-  </p>
 
-   <p>
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </p>
-
-  <p>
-    <%= f.label :bio %><br>
-    <%= f.text_area :bio %>
-  </p>
-
-  <p>
-    <%= f.label :universe %><br>
-    <%= collection_select(:character, :universe_id, Universe.all, :id, :name, include_blank: true) %>
-  </p>
-
-  <p>
-    <%= f.label :ability, "Abilities" %> <br>
-    <%= collection_check_boxes(:character, :ability_ids, Ability.all, :id, :name) %>
-  </p>
-
-  <p>
-    <%= f.label :photo %>
-    <%= f.file_field :photo %>
-  </p>
-
-  <%= f.submit %>
-<% end %>
 
 
 

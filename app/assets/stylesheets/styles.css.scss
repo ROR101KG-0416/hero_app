@@ -1,0 +1,13 @@
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+.profile_pic {
+  height: 300px;
+}
+
+.navbar-nav span {
+  position: relative;
+  display: block;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
