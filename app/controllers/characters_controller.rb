@@ -3,7 +3,12 @@ class CharactersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @characters = Character.all
+    @characters = Character.search(params[:query])
+    
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def show
@@ -42,7 +47,10 @@ class CharactersController < ApplicationController
   def destroy
     @character.delete
 
-    redirect_to characters_path
+    respond_to do |format|
+      format.html { redirect_to characters_path, notice: 'something happened' }
+      format.js
+    end
   end
 
   private
