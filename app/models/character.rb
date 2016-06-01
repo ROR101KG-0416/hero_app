@@ -3,6 +3,7 @@ class Character < ActiveRecord::Base
 
   has_many :character_abilities
   has_many :abilities, through: :character_abilities
+  has_many :comments
   
   validates :alias, presence: true, uniqueness: {case_sensitive: false}
   validates :universe, presence: true

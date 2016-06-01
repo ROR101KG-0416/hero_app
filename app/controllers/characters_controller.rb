@@ -12,6 +12,8 @@ class CharactersController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @character.comments
   end
 
   def new
